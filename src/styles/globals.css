@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=Urbanist:wght@400;700&family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Material+Icons&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,6 +8,8 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --font-urbanist: "Urbanist", sans-serif;
+  --font-roboto: "Roboto", sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,5 +22,5 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-urbanist), Arial, Helvetica, sans-serif;
 }

@@ -1,3 +1,9 @@
+import Branding from "./landing/branding";
+
 export default function Home() {
-  return <h2>Holaaa</h2>;
+  return (
+    <main>
+      <Branding />
+    </main>
+  );
 }
