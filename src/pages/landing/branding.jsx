@@ -1,5 +1,6 @@
 import Image from "next/image";
 import ButtonJoinNow from "@/components/ButtonJoinNow";
+import { MdOutlinePets } from "react-icons/md";
 
 export default function Branding() {
   return (
@@ -20,7 +21,9 @@ export default function Branding() {
           </h5>
           <div className="py-6">
             <ButtonJoinNow>
-              <span className="material-symbols-outlined pr-2">&#xe91d;</span>
+              <span className="pr-2">
+                <MdOutlinePets />
+              </span>
               ¡Únete ahora!
             </ButtonJoinNow>
           </div>
