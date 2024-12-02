@@ -10,6 +10,9 @@ module.exports = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        congress: {
+          950: "#1a202c",
+        },
       },
       fontFamily: {
         urbanist: ["var(--font-urbanist)", "sans-serif"],
