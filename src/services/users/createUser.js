@@ -1,17 +1,14 @@
 const API_URL = process.env.NEXT_PUBLIC_API_URL;
 import { toast } from "sonner";
 
-export async function createAccountVet(
-  endpoint,
-  { email, password, professionalId }
-) {
+export async function createAccountUser(endpoint, { email, password }) {
   try {
     const response = await fetch(`${API_URL}${endpoint}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email, password, professionalId }),
+      body: JSON.stringify({ email, password }),
     });
 
     const data = await response.json();
