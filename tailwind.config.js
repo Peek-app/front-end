@@ -13,7 +13,7 @@ module.exports = {
         congress: {
           100: "#f7fafc",
           200: "#edf2f7",
-          300: "#e2e8f0",
+          300: "#78B3EA",
           400: "#cbd5e0",
           500: "#a0aec0",
           600: "#718096",
@@ -35,6 +35,10 @@ module.exports = {
       },
       height: {
         mosaic: "520px",
+        landingExampleArea: "850px",
+      },
+      backgroundImage: {
+        "gradient-landing": "linear-gradient(to bottom, #0e2139, #2e1548)",
       },
     },
   },

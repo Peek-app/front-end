@@ -2,13 +2,11 @@ import Image from "next/image";
 
 export default function Mosaic() {
   return (
-    <main className="bg-white px-32 py-2">
+    <main className="bg-white px-32 pt-2 pb-28">
       <section>
-        <h2 className="text-congress-950 text-3xl py-10">
-          La plataforma que te permite{" "}
-          <span className="font-bold">gestionar</span> la salud de tu <br />
-          componañero de manera{" "}
-          <span className="font-bold">fácil y divertida</span>
+        <h2 className="text-congress-950 font-bold text-3xl py-10">
+          ¡Organiza la salud de tu compañero de <br /> manera
+          <span className="font-bold text-orange-600"> fácil y divertida</span>!
         </h2>
       </section>
       <section className="h-mosaic grid grid-cols-4 grid-rows-4 gap-4">
