@@ -11,7 +11,9 @@ export default function Landing() {
       <section>
         <Mosaic />
       </section>
-      <section>{/* <ExampleArea /> */}</section>
+      <section>
+        <ExampleArea />{" "}
+      </section>
     </main>
   );
 }

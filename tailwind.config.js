@@ -35,6 +35,7 @@ module.exports = {
       },
       height: {
         mosaic: "520px",
+        landingExampleArea: "850px",
       },
     },
   },

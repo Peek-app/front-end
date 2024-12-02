@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Mosaic() {
   return (
-    <main className="bg-white px-32 py-2">
+    <main className="bg-white px-32 pt-2 pb-28">
       <section>
         <h2 className="text-congress-950 text-3xl py-10">
           La plataforma que te permite{" "}
