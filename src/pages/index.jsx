@@ -1,3 +1,11 @@
+import Navbar from "@/components/NavBar";
+import Landing from "./landing";
+
 export default function Home() {
-  return <h2>Holaaa</h2>;
+  return (
+    <main>
+      <Navbar></Navbar>
+      <Landing />
+    </main>
+  );
 }
