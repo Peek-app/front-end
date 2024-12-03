@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-const ButtonJoinNow = ({ children, className, ...props }) => {
+const ButtonJoinNow = ({ children, className = "", ...props }) => {
   return (
     <button
       className={`bg-orange-500 text-white rounded-3xl shadow-md px-8 py-2 flex items-center text-base ${className}`}
@@ -14,10 +14,6 @@ const ButtonJoinNow = ({ children, className, ...props }) => {
 ButtonJoinNow.propTypes = {
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
-};
-
-ButtonJoinNow.defaultProps = {
-  className: "",
 };
 
 export default ButtonJoinNow;
