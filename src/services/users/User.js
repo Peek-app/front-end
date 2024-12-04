@@ -1,8 +1,8 @@
-const api = process.env.REACT_APP_API_URL;
+const api = process.env.NEXT_PUBLIC_API_URL;
 
 export const createUser = async (userData) => {
   try {
-    const response = await fetch(`${api}/users/`, {
+    const response = await fetch(`${api}/users`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -10,14 +10,16 @@ export const createUser = async (userData) => {
       body: JSON.stringify(userData),
     });
 
+    const data = await response.json();
+
     if (!response.ok) {
-      throw new Error("Error creating user");
+      const errorMessage = data.message || "Error.";
+      throw new Error(errorMessage);
     }
 
-    const data = await response.json();
     return data;
   } catch (error) {
-    console.error("Error:", error);
+    console.error("Error createAccount:", error.message);
     throw error;
   }
 };
