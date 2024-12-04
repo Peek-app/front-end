@@ -22,6 +22,10 @@ module.exports = {
           900: "#1a202c",
           950: "#1a202c",
         },
+        gray: {
+          200: "#e5e7eb",
+          300: "#d1d5dc",
+        },
       },
       fontFamily: {
         urbanist: ["var(--font-urbanist)", "sans-serif"],
