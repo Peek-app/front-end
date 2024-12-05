@@ -11,7 +11,7 @@ export default function MobileExampleArea() {
       </div>
       <div className="relative w-full h-96">
         <Image
-          src="/ExampleCards.png"
+          src="/ExampleCards2.png"
           alt="Ejemplo de cards"
           fill
           sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw"
@@ -20,13 +20,13 @@ export default function MobileExampleArea() {
         />
       </div>
       <section className="flex flex-col justify-between h-full px-8">
-        <div className="text-2xl font-bold">
+        <div className="text-2xl font-bold pb-4">
           <h3>
             Toda la información que necesitas y{" "}
             <span className="text-congress-300">más</span>
           </h3>
         </div>
-        <div className="font-bold">
+        <div className="font-bold pb-4">
           <h4 className="text-2xl inline-flex items-center">
             <MdOutlinePets className="mr-3" />
             En un sólo lugar
