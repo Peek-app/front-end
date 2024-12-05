@@ -15,6 +15,10 @@ export default function Landing() {
     setIsClient(true);
   }, []);
 
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <main>
       <section>
