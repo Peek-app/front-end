@@ -8,9 +8,10 @@ export default function Branding() {
       <Image
         src="/ImagenBranding.png"
         alt="perro en caja"
-        layout="fill"
-        objectFit="cover"
+        fill
+        sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw"
         className="h-full object-cover"
+        priority
       />
       <section className="absolute top-0 left-0 w-full h-full grid grid-cols-12 pt-3 pl-8 md:pl-8">
         <div className="col-span-12 md:col-span-3 md:p-4">
