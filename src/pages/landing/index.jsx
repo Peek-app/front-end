@@ -3,6 +3,7 @@ import { useMediaQuery } from "react-responsive";
 
 import Branding from "./branding";
 import ExampleArea from "./exampleArea";
+import MobileExampleArea from "./mobileExampleArea";
 import Mosaic from "./mosaic";
 import MobileMosaic from "./mobileMosaic";
 import VetArea from "./vetArea";
@@ -26,7 +27,9 @@ export default function Landing() {
       </section>
       <section>{isDesktopOrLaptop ? <Mosaic /> : <MobileMosaic />}</section>
       <section>
-        <ExampleArea />{" "}
+        <section>
+          {isDesktopOrLaptop ? <ExampleArea /> : <MobileExampleArea />}
+        </section>
       </section>
       <section>
         <VetArea />
