@@ -29,7 +29,9 @@ export default function Footer() {
         </section>
         <section className="lg:col-span-5 flex flex-col items-end justify-between">
           <div className="flex justify-end w-full pt-20">
-            <ButtonJoinNow>¡Únete ahora!</ButtonJoinNow>
+            <ButtonJoinNow className="hidden md:block">
+              ¡Únete ahora!
+            </ButtonJoinNow>
           </div>
           <div className="flex space-x-4 text-2xl mt-4 justify-end w-full">
             <FaInstagram />

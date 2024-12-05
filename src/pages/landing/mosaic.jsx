@@ -15,8 +15,8 @@ export default function Mosaic() {
           <Image
             src="/petMosaic1.png"
             alt="mascota mosaico 1"
-            layout="fill"
-            objectFit="cover"
+            fill
+            sizes="(max-width: 768px) 100vw, (min-width: 769px) 25vw"
             className="absolute inset-0 w-full h-full object-cover rounded-3xl"
           />
           <div className="relative z-10 p-4 text-congress-950">
@@ -47,8 +47,8 @@ export default function Mosaic() {
           <Image
             src="/petMosaic3.png"
             alt="mascota mosaico 3"
-            layout="fill"
-            objectFit="cover"
+            fill
+            sizes="(max-width: 768px) 100vw, (min-width: 769px) 25vw"
             className="absolute inset-0 w-full h-full object-cover rounded-3xl"
           />
           <div className="relative z-10 p-4 text-congress-950">
@@ -64,8 +64,8 @@ export default function Mosaic() {
           <Image
             src="/petMosaic2.png"
             alt="mascota mosaico 2"
-            layout="fill"
-            objectFit="cover"
+            fill
+            sizes="(max-width: 768px) 100vw, (min-width: 769px) 25vw"
             className="absolute inset-0 w-full h-full object-cover rounded-3xl"
           />
           <div className="relative z-10 p-4 text-congress-950">
@@ -81,8 +81,8 @@ export default function Mosaic() {
           <Image
             src="/petMosaic4.jpg"
             alt="mascota mosaico 4"
-            layout="fill"
-            objectFit="cover"
+            fill
+            sizes="(max-width: 768px) 100vw, (min-width: 769px) 25vw"
             className="absolute inset-0 w-full h-full object-cover rounded-3xl"
           />
           <div className="relative z-10 p-4 text-congress-950">
