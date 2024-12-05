@@ -1,32 +1,80 @@
-import { RxPerson, RxHamburgerMenu } from "react-icons/rx";
+import { RxPerson, RxHamburgerMenu, RxCross1 } from "react-icons/rx";
 import { MdOutlinePets } from "react-icons/md";
+import ButtonJoinNow from "@/components/ButtonJoinNow";
+import RoundedButton from "@/components/RoundedButton";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [isShowingNavBar, setIsShowingNavBar] = useState(false);
+
   return (
-    <nav className="grid grid-cols-1 bg-[#ECEADE] px-8 py-5 md:grid-cols-2 lg:grid-cols-6">
-      <div className="block lg:hidden">
-        <button className="text-[#0E2139] text-xl">
-          <RxHamburgerMenu />
-        </button>
-      </div>
-      <div className="hidden flex-col justify-center md:flex">
-        <p className="text-black">Peek Logo</p>
-      </div>
-      <div className="col-span-3 hidden justify-center gap-16 font-bold text-[#0E2139] lg:flex">
-        <button>Veterinarios</button>
-        <button>Conocenos</button>
-        <button>Contacto</button>
-      </div>
-      <div className="col-span-2 hidden justify-center gap-4 lg:flex">
-        <button className="rounded-full bg-[#FA7A26] px-6 py-3 flex gap-2 items-center">
-          <MdOutlinePets />
-          <p>!Únete ahora!</p>
-        </button>
-        <button className="rounded-full border border-[#FA7A26] px-6 py-3 text-[#FA7A26] flex gap-2 items-center">
-          <RxPerson />
-          <p>Inicia sesión</p>
-        </button>
-      </div>
-    </nav>
+    <>
+      <nav className="grid grid-cols-1 bg-[#ECEADE] px-8 py-5 md:grid-cols-2 xl:grid-cols-6 sticky top-0 z-50 shadow-md">
+        <div className="block xl:hidden">
+          <button
+            className="text-[#0E2139] text-xl"
+            href=""
+            onClick={() => setIsShowingNavBar(true)}
+          >
+            <RxHamburgerMenu />
+          </button>
+        </div>
+        <div className="hidden flex-col justify-center md:flex">
+          <p className="text-black">Peek Logo</p>
+        </div>
+        <div className="col-span-3 hidden justify-center gap-16 font-bold text-[#0E2139] xl:flex">
+          <button>Veterinarios</button>
+          <button>Conocenos</button>
+          <button>Contacto</button>
+        </div>
+        <div className="col-span-2 hidden justify-center gap-4 xl:flex">
+          <ButtonJoinNow>
+            <span className="pr-2">
+              <MdOutlinePets />
+            </span>
+            ¡Únete ahora!
+          </ButtonJoinNow>
+
+          <RoundedButton text={`Iniciar sesión`} destination={`/login`}>
+            <RxPerson className="mr-2" />
+          </RoundedButton>
+        </div>
+      </nav>
+
+      {isShowingNavBar && (
+        <aside className="p-3 z-50 fixed top-0 left-0 bg-white h-screen w-60 shadow-lg ">
+          <div className="flex flex-col gap-8 text-orange-500 ">
+            <div className="text-right">
+              <button
+                className="text-xl"
+                href=""
+                onClick={() => setIsShowingNavBar(false)}
+              >
+                <RxCross1 />
+              </button>
+            </div>
+            <div className="flex flex-col gap-4">
+              <button>Veterinarios</button>
+
+              <button>Conocenos</button>
+
+              <button>Contacto</button>
+            </div>
+            <div className="flex flex-col gap-4  border-t-[1px] border-orange-500 pt-8 ">
+              <ButtonJoinNow className="w-full">
+                <span className="pr-4 ">
+                  <MdOutlinePets />
+                </span>
+                ¡Únete ahora!
+              </ButtonJoinNow>
+              <RoundedButton text={`Iniciar sesión`} destination={`/login`}>
+                <RxPerson className="mr-2" />
+              </RoundedButton>
+            </div>
+            <div></div>
+          </div>
+        </aside>
+      )}
+    </>
   );
 }
