@@ -26,6 +26,9 @@ module.exports = {
           200: "#e5e7eb",
           300: "#d1d5dc",
         },
+        secondary: {
+          600: "#da551d",
+        },
       },
       fontFamily: {
         urbanist: ["var(--font-urbanist)", "sans-serif"],
