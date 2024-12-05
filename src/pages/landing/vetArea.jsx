@@ -13,13 +13,14 @@ export default function VetArea() {
         </div>
         <div className="text-congress-950 flex flex-col justify-center items-start space-y-8 h-full">
           <p className="text-2xl text-left">
-            Forma parte de la comunidad de profesionales de peek, miles de
-            usuarios te están buscando
+            Forma parte de la comunidad de profesionales de{" "}
+            <span className="font-bold">peek</span>, miles de usuarios te están
+            buscando
           </p>
           <ButtonJoinNow>¡Únete ahora!</ButtonJoinNow>
         </div>
       </section>
-      <section className="lg:col-start-7 lg:col-span-5 border-2 border-congress-950 rounded-3xl text-congress-950 px-24 py-16 space-y-8">
+      <section className="hidden md:block lg:col-start-7 lg:col-span-5 border-2 border-congress-950 rounded-3xl text-congress-950 px-24 py-16 space-y-8">
         <div className="text-4xl font-bold inline-flex items-center">
           <FaPlusCircle className="mr-3" />
           Haz crecer tu práctica veterinaria

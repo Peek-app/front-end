@@ -40,9 +40,10 @@ export default function ExampleArea() {
         <Image
           src="/ExampleCards.png"
           alt="perro en caja"
-          layout="fill"
-          objectFit="contain"
+          fill
+          sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw"
           className="absolute inset-0 w-full h-full"
+          priority
         />
       </section>
     </main>
