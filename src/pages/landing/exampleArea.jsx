@@ -3,7 +3,7 @@ import { MdOutlinePets } from "react-icons/md";
 
 export default function ExampleArea() {
   return (
-    <main className="h-landingExampleArea grid grid-cols-1 py-20 lg:grid-cols-12 lg:gap-8 bg-gradient-landing">
+    <main className="h-landingExampleArea grid grid-cols-1 py-20 lg:grid-cols-12 lg:gap-8 bg-gradient-landing text-white">
       <section className="lg:col-start-2 lg:col-span-4 flex flex-col justify-between h-full">
         <div>
           <h2 className="text-5xl font-bold text-orange-500">
@@ -40,9 +40,10 @@ export default function ExampleArea() {
         <Image
           src="/ExampleCards.png"
           alt="perro en caja"
-          fill
+          width={800}
+          height={600}
           sizes="(max-width: 768px) 100vw, (min-width: 769px) 50vw"
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0 w-full h-full object-contain"
           priority
         />
       </section>
