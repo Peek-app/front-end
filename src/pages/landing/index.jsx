@@ -28,16 +28,18 @@ export default function Landing() {
       <section>
         <Branding />
       </section>
-      <section>{isDesktopOrLaptop ? <Mosaic /> : <MobileMosaic />}</section>
+      <section>
+        {isDesktopOrLaptop ? (
+          <Mosaic />
+        ) : isTablet ? (
+          <TabletMosaic />
+        ) : (
+          <MobileMosaic />
+        )}
+      </section>
       <section>
         <section>
-          {isDesktopOrLaptop ? (
-            <Mosaic />
-          ) : isTablet ? (
-            <TabletMosaic />
-          ) : (
-            <MobileMosaic />
-          )}
+          {isDesktopOrLaptop ? <ExampleArea /> : <MobileExampleArea />}
         </section>
       </section>
       <section>
