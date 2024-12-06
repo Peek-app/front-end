@@ -16,7 +16,7 @@ export default function Header() {
         onClick={() => {
           setShowDataUser(!showDataUser);
         }}
-        className="col-start-10 col-span-3 flex items-center gap-4 text-secondary-600 font-roboto font-[700] "
+        className="col-start-10 col-span-3 flex items-center gap-4 text-secondary-600 font-roboto font-bold"
       >
         <Avatar />
         <span>Nombre del usuario</span>
