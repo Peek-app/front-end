@@ -1,0 +1,26 @@
+[
+  {
+    "user": [
+      {
+        "id": 1,
+        "text": "Mi perfil",
+        "icon": "BsGrid"
+      },
+      {
+        "id": 2,
+        "text": "Mis citas",
+        "icon": "BsCalendar4Week"
+      },
+      {
+        "id": 3,
+        "text": "Buscar",
+        "icon": "MdOutlineFindInPage"
+      },
+      {
+        "id": 4,
+        "text": "Mis mascotas",
+        "icon": "MdOutlinePets"
+      }
+    ]
+  }
+]
