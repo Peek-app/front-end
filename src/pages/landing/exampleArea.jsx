@@ -10,13 +10,13 @@ export default function ExampleArea() {
             Crea El Perfil Digital De Tus Compañeros
           </h2>
         </div>
-
         <div className="text-3xl font-bold pr-28">
           <h3>
             Toda la información que necesitas y{" "}
             <span className="text-congress-300">más</span>
           </h3>
         </div>
+
         <div className="font-bold pr-28">
           <h4 className="text-3xl inline-flex items-center">
             <MdOutlinePets className="mr-3" />

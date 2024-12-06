@@ -45,7 +45,8 @@ module.exports = {
         landingExampleArea: "850px",
       },
       backgroundImage: {
-        "gradient-landing": "linear-gradient(to bottom, #0e2139, #2e1548)",
+        "gradient-landing":
+          "linear-gradient(to bottom, #0e2139 30%, #2e1548 70%)",
       },
     },
   },
