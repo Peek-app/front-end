@@ -6,11 +6,14 @@ import ExampleArea from "./exampleArea";
 import MobileExampleArea from "./mobileExampleArea";
 import Mosaic from "./mosaic";
 import MobileMosaic from "./mobileMosaic";
+import TabletMosaic from "./tabletMosaic";
 import VetArea from "./vetArea";
 
 export default function Landing() {
   const [isClient, setIsClient] = useState(false);
-  const isDesktopOrLaptop = useMediaQuery({ minWidth: 1224 });
+  const isTabletOrMobile = useMediaQuery({ maxWidth: 767 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
+  const isDesktopOrLaptop = useMediaQuery({ minWidth: 1024 });
 
   useEffect(() => {
     setIsClient(true);
@@ -28,7 +31,13 @@ export default function Landing() {
       <section>{isDesktopOrLaptop ? <Mosaic /> : <MobileMosaic />}</section>
       <section>
         <section>
-          {isDesktopOrLaptop ? <ExampleArea /> : <MobileExampleArea />}
+          {isDesktopOrLaptop ? (
+            <Mosaic />
+          ) : isTablet ? (
+            <TabletMosaic />
+          ) : (
+            <MobileMosaic />
+          )}
         </section>
       </section>
       <section>

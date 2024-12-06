@@ -26,7 +26,6 @@ export default function Mosaic() {
             </p>
           </div>
         </article>
-
         {/* Columna 1, Fila 4 */}
         <article className="bg-congress-950 text-white col-start-1 row-start-4 row-span-1 rounded-3xl flex items-center justify-center text-center">
           <p>
@@ -41,7 +40,6 @@ export default function Mosaic() {
             <span className="font-bold">Mascota</span>
           </p>
         </article>
-
         {/* Columna 2, Fila 2-4 */}
         <article className="relative col-start-2 row-start-2 row-span-3">
           <Image
@@ -58,7 +56,6 @@ export default function Mosaic() {
             </p>
           </div>
         </article>
-
         {/* Columna 3, Fila 1-4 */}
         <article className="relative col-start-3 row-start-1 row-span-4">
           <Image
@@ -75,7 +72,6 @@ export default function Mosaic() {
             </p>
           </div>
         </article>
-
         {/* Columna 4, Fila 1-3 */}
         <article className="relative col-start-4 row-start-1 row-span-3">
           <Image
@@ -92,7 +88,6 @@ export default function Mosaic() {
             </p>
           </div>
         </article>
-
         {/* Columna 4, Fila 4 */}
         <article className="bg-congress-200 text-congress-950 col-start-4 row-start-4 row-span-1 rounded-2xl flex items-center justify-center">
           <p className="text-congress-950 p-3">
