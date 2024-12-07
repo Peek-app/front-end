@@ -4,7 +4,7 @@ import { FaFacebook } from "react-icons/fa";
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-landing p-10 roboto">
+    <footer className="bg-gradient-landing p-10 roboto text-white">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
         <section className="lg:col-span-7 space-y-8">
           <div>

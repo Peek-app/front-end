@@ -13,7 +13,7 @@ export default function Branding() {
         className="h-full object-cover"
         priority
       />
-      <section className="absolute top-0 left-0 w-full h-full grid grid-cols-12 pt-3 pl-8 md:pl-8">
+      <section className="absolute top-0 left-0 w-full h-full grid grid-cols-12 md:grid-cols-8 pt-3 pl-8 md:pl-8">
         <div className="col-span-12 md:col-span-3 md:p-4">
           <h1 className="text-congress-950 text-5xl md:text-128px font-black">
             peek
@@ -22,8 +22,8 @@ export default function Branding() {
             Cuida a tu <span className="text-orange-500">componañero</span>{" "}
             <br /> como se merece
           </h5>
-          <div className="md:py-4">
-            <ButtonJoinNow>
+          <div className="lg:py-4">
+            <ButtonJoinNow className="md:text-sm md:px-4 md:py-2">
               <span className="pr-2">
                 <MdOutlinePets />
               </span>
