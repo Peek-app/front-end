@@ -1,13 +1,14 @@
-import Navbar from "@/components/NavBar";
-import Landing from "./landing";
-import Footer from "@/components/Footer";
+import Landing from "@/pages/landing/index";
+import Dashboard from "@/pages/dashboard/index";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  return (
-    <main>
-      <Navbar></Navbar>
-      <Landing />
-      <Footer />
-    </main>
-  );
+  const [token, setToken] = useState(null);
+
+  useEffect(() => {
+    const storedToken = localStorage.getItem("access-token");
+    setToken(storedToken);
+  }, []);
+
+  return <main>{token ? <Dashboard /> : <Landing />}</main>;
 }

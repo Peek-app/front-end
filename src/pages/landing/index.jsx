@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useMediaQuery } from "react-responsive";
 
+import Navbar from "@/components/NavBar";
+import Footer from "@/components/Footer";
+
 import Branding from "./branding";
 import Mosaic from "./mosaic";
 import MobileMosaic from "./mobileMosaic";
@@ -26,6 +29,7 @@ export default function Landing() {
 
   return (
     <main>
+      <Navbar />
       <section>
         <Branding />
       </section>
@@ -50,6 +54,7 @@ export default function Landing() {
       <section>
         <VetArea />
       </section>
+      <Footer />
     </main>
   );
 }
