@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { toast } from "sonner";
-import { createUser } from "@/services/users/User";
+import { createUser } from "@/pages/api/services/users/User";
 
 import PrimaryButton from "@/components/PrimaryButton";
 
