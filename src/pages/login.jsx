@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { loginUser } from "@/services/users/User";
+import { loginUser } from "@/pages/api/services/users/User";
 import { PiUserCircleLight } from "react-icons/pi";
 import { TbUserHexagon } from "react-icons/tb";
 
