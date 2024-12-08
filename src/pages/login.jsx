@@ -19,28 +19,28 @@ export default function loginPage() {
 
   async function onSubmit(data) {
     setIsSubmitting(true);
-    alert("is submiting");
-    /*
+    //alert("is submiting");
+
     try {
       const token = await loginUser(data.email, data.password);
       if (token) {
         //alert("valid credential");
-        localStorage.setItem("token", token.token);
-        const user = await getUserById(token.id);
-        localStorage.setItem("name", user.name);
-        localStorage.setItem("profilePic", user.profilePic);
-        localStorage.setItem("joinedAt", user.createAt);
+        localStorage.setItem("access-token", token.token);
+        //alert(token);
         router.push("/");
         setIsSubmitting(false);
         return;
       }
 
-      setError("root.data", { type: "manual", message: "Invalid credentials" });
+      setError("root.data", {
+        type: "manual",
+        message: "Ups! Verifica que tus datos sean los correctos",
+      });
       setIsSubmitting(false);
     } catch (error) {
       console.log("Error in login:", error);
       setIsSubmitting(false);
-    }*/
+    }
   }
 
   return (
@@ -122,11 +122,6 @@ export default function loginPage() {
               >
                 {isSubmitting ? "Cargando ..." : "Iniciar sesión"}
               </button>
-              {errors.root?.data && (
-                <span className="p-2 rounded w-full bg-red-500/15 text-sm text-red-500">
-                  {errors.root.data.message}
-                </span>
-              )}
               {errors.root?.data && (
                 <span className="p-2 rounded w-full bg-red-500/15 text-sm text-red-500">
                   {errors.root.data.message}
