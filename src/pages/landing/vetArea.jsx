@@ -3,8 +3,8 @@ import { FaPlusCircle } from "react-icons/fa";
 
 export default function VetArea() {
   return (
-    <main className="bg-white grid grid-cols-1 lg:grid-cols-12 gap-4 py-10">
-      <section className="lg:col-start-2 lg:col-span-5 p-10">
+    <main className="bg-white grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-4 py-10">
+      <section className="md:col-span-8 lg:col-start-2 lg:col-span-5 p-10">
         <div>
           <h2 className="text-congress-950 text-5xl">
             ¿Eres <span className="text-orange-500 font-bold">veterinario</span>
@@ -20,7 +20,8 @@ export default function VetArea() {
           <ButtonJoinNow>¡Únete ahora!</ButtonJoinNow>
         </div>
       </section>
-      <section className="hidden md:block lg:col-start-7 lg:col-span-5 border-2 border-congress-950 rounded-3xl text-congress-950 px-24 py-16 space-y-8">
+
+      <section className="hidden md:block md:col-span-8 lg:col-start-7 lg:col-span-5 border-2 border-congress-950 rounded-3xl text-congress-950 px-24 py-16 space-y-8">
         <div className="text-4xl font-bold inline-flex items-center">
           <FaPlusCircle className="mr-3" />
           Haz crecer tu práctica veterinaria

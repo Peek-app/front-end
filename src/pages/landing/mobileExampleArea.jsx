@@ -3,7 +3,7 @@ import { MdOutlinePets } from "react-icons/md";
 
 export default function MobileExampleArea() {
   return (
-    <main className="h-landingExampleArea grid grid-cols-1 py-10 bg-gradient-landing">
+    <main className="h-landingExampleArea grid grid-cols-1 py-10 bg-gradient-landing text-white">
       <div>
         <h2 className="text-3xl text-center font-bold text-orange-500 px-8">
           Crea El Perfil Digital De Tus Compañeros

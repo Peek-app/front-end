@@ -1,4 +1,4 @@
-const api = process.env.NEXT_PUBLIC_API_URL;
+const api = "https://back-end-w815.onrender.com";
 
 export const createUser = async (userData) => {
   try {
@@ -33,11 +33,11 @@ export const loginUser = async (email, password) => {
       },
       body: JSON.stringify({ email, password }),
     });
-
+    /*
     if (!response.ok) {
       throw new Error("Error logging in");
     }
-
+*/
     const data = await response.json();
     const token = data?.data || false;
     return token;
