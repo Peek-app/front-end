@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 
+const publicRoutes = ["/", "/login", "/create-account", "/landing"];
+
 export default function AuthProvider({ children }) {
   const { data: session } = useSession();
   const router = useRouter();
@@ -14,8 +16,8 @@ export default function AuthProvider({ children }) {
 
   useEffect(() => {
     const token = localStorage.getItem("access-token");
-    if (!token) {
-      router.push("/login");
+    if (!token && !publicRoutes.includes(router.pathname)) {
+      router.push("/dashboard");
     }
   }, [router]);
 
