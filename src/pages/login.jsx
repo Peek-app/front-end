@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { loginUser } from "@/pages/api/services/users/User";
+import { PiUserCircleLight } from "react-icons/pi";
+import { TbUserHexagon } from "react-icons/tb";
 
 export default function loginPage() {
   const {
@@ -17,44 +19,49 @@ export default function loginPage() {
 
   async function onSubmit(data) {
     setIsSubmitting(true);
-    alert("is submiting");
-    /*
+    //alert("is submiting");
+
     try {
       const token = await loginUser(data.email, data.password);
       if (token) {
         //alert("valid credential");
-        localStorage.setItem("token", token.token);
-        const user = await getUserById(token.id);
-        localStorage.setItem("name", user.name);
-        localStorage.setItem("profilePic", user.profilePic);
-        localStorage.setItem("joinedAt", user.createAt);
+        localStorage.setItem("access-token", token.token);
+        //alert(token);
         router.push("/");
         setIsSubmitting(false);
         return;
       }
 
-      setError("root.data", { type: "manual", message: "Invalid credentials" });
+      setError("root.data", {
+        type: "manual",
+        message: "Ups! Verifica que tus datos sean los correctos",
+      });
       setIsSubmitting(false);
     } catch (error) {
       console.log("Error in login:", error);
       setIsSubmitting(false);
-    }*/
+    }
   }
 
   return (
     <main>
-      <Navbar></Navbar>
       <div className="h-screen bg-white">
         <div className="flex items-center justify-center h-full">
-          <div className="bg-white p-6 rounded-lg shadow-lg w-96">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="flex flex-col gap-1">
-                <p className="w-full text-left font-semibold">Email</p>
+          <div className="bg-white p-6 rounded-lg shadow-2xl w-96 ">
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              className="flex flex-col gap-4 items-center mb-12"
+            >
+              <PiUserCircleLight className="text-8xl text-congress-950" />
+              <h2 className=" text-congress-950 text-2xl">Bienvenido</h2>
+              <div className="flex flex-col gap-1 w-full">
+                <p className="w-full text-left text-congress-950">Email</p>
                 <input
                   type="text"
-                  placeholder="Enter your email"
+                  placeholder="Ingresa tu email"
+                  autoComplete="off"
                   className={clsx(
-                    "w-full rounded-md border border-gray-200 p-2",
+                    "w-full rounded-md border border-gray-200 p-2 text-congress-950",
                     {
                       "bg-red-500/10 border-red-500": errors.email,
                     }
@@ -62,11 +69,11 @@ export default function loginPage() {
                   {...register("email", {
                     required: {
                       value: true,
-                      message: "Email is required",
+                      message: "Email es requerido",
                     },
                     pattern: {
                       value: /[^@ \t\r\n]+@[^@ \t\r\n]+.[^@ \t\r\n]+/,
-                      message: "Enter a valid email",
+                      message: "Ingresa un email valido",
                     },
                   })}
                 />
@@ -74,21 +81,21 @@ export default function loginPage() {
                   <span className="text-red-500">{errors.email.message}</span>
                 )}
               </div>
-              <div className="flex flex-col gap-1">
-                <p className="w-full text-left font-semibold">Password</p>
+              <div className="flex flex-col gap-1 w-full">
+                <p className="w-full text-left text-congress-950">Contraseña</p>
                 <input
                   type="password"
                   className={clsx(
-                    "w-full rounded-md border border-gray-200 p-2",
+                    "w-full rounded-md border border-gray-200 p-2 text-congress-950",
                     {
                       "bg-red-500/10 border-red-500": errors.password,
                     }
                   )}
-                  placeholder="Enter your password"
+                  placeholder="Ingresa tu contraseña"
                   {...register("password", {
                     required: {
                       value: true,
-                      message: "Password is required",
+                      message: "La contraseña es requerida",
                     },
                   })}
                 />
@@ -98,35 +105,37 @@ export default function loginPage() {
                   </span>
                 )}
               </div>
-              <div className="flex flex-row justify-between py-2">
-                <div className="flex flex-row gap-2">
-                  <input type="checkbox" name="" id="" />
-                  <p>Remember me</p>
-                </div>
-                <a href="">Forgot password?</a>
+              <div className="flex flex-row justify-between py-2 w-full">
+                <div className="flex flex-row gap-2"></div>
+                <a href="" className="text-congress-950">
+                  Olvidaste tu contraseña?
+                </a>
               </div>
               <button
                 className={clsx(
-                  "w-full rounded-md bg-blue-800/90 hover:bg-blue-800 p-2 text-white",
+                  "w-full rounded-md bg-congress-900 hover:bg-congress-700 p-2 text-white",
                   {
                     "bg-gray-300": isSubmitting,
                   }
                 )}
                 disabled={isSubmitting}
               >
-                {isSubmitting ? "Loading ..." : "Login"}
+                {isSubmitting ? "Cargando ..." : "Iniciar sesión"}
               </button>
               {errors.root?.data && (
                 <span className="p-2 rounded w-full bg-red-500/15 text-sm text-red-500">
                   {errors.root.data.message}
                 </span>
               )}
-              {errors.root?.data && (
-                <span className="p-2 rounded w-full bg-red-500/15 text-sm text-red-500">
-                  {errors.root.data.message}
-                </span>
-              )}
             </form>
+
+            <hr />
+            <p className="text-congress-950 mt-4 text-center">
+              No tienes una cuenta?{" "}
+              <a className="text-congress-300" href="">
+                Registrate aquí
+              </a>
+            </p>
           </div>
         </div>
       </div>
