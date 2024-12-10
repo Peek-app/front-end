@@ -1,4 +1,4 @@
-const api = "https://back-end-w815.onrender.com";
+const api = process.env.NEXT_PUBLIC_API_URL;
 
 export const createUser = async (userData) => {
   try {
