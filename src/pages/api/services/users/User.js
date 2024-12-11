@@ -1,6 +1,6 @@
 const api = process.env.NEXT_PUBLIC_API_URL;
 
-export const createUser = async (userData) => {
+export async function createUser(userData) {
   try {
     const response = await fetch(`${api}/users`, {
       method: "POST",
@@ -22,9 +22,9 @@ export const createUser = async (userData) => {
     console.error("Error createAccount:", error.message);
     throw error;
   }
-};
+}
 
-export const loginUser = async (email, password) => {
+export async function loginUser(email, password) {
   try {
     const response = await fetch(`${api}/auth/login`, {
       method: "POST",
@@ -33,11 +33,13 @@ export const loginUser = async (email, password) => {
       },
       body: JSON.stringify({ email, password }),
     });
+
     /*
     if (!response.ok) {
       throw new Error("Error logging in");
     }
-*/
+    */
+
     const data = await response.json();
     const token = data?.data || false;
     return token;
@@ -45,4 +47,4 @@ export const loginUser = async (email, password) => {
     console.error("Error:", error);
     throw error;
   }
-};
+}
