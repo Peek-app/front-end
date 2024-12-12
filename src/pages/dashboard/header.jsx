@@ -1,6 +1,9 @@
 import { useState } from "react";
-
-import { BsBell, BsChevronDown } from "react-icons/bs";
+import {
+  PiBellLight,
+  PiArrowDownLight,
+  PiCaretDownLight,
+} from "react-icons/pi";
 
 import Avatar from "@/components/Avatar";
 import Submenu from "@/components/Submenu";
@@ -8,21 +11,15 @@ import Submenu from "@/components/Submenu";
 export default function Header() {
   const [showDataUser, setShowDataUser] = useState(false);
   return (
-    <header className="grid grid-cols-12 gap-4 h-[80px] shadow-lg items-center">
-      <div className="col-start-9 text-congress-950 text-[25px] text-right grid justify-items-end">
-        <BsBell />
+    <header className=" bg-white  h-16">
+      <div className="flex flex-row items-center justify-end gap-8 mr-10 h-full">
+        <PiBellLight className="text-slate-900 size-8" />
+        <div className="flex flex-row justify-between items-center gap-4 text-orange-500">
+          <Avatar />
+          <p className="">Hola, User</p>
+          <PiCaretDownLight className="text size-6" />
+        </div>
       </div>
-      <button
-        onClick={() => {
-          setShowDataUser(!showDataUser);
-        }}
-        className="col-start-10 col-span-3 flex items-center gap-4 text-secondary-600 font-roboto font-bold"
-      >
-        <Avatar />
-        <span>Nombre del usuario</span>
-        <BsChevronDown />
-      </button>
-      {showDataUser && <Submenu />}
     </header>
   );
 }
