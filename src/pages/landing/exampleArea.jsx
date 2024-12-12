@@ -1,10 +1,16 @@
+import clsx from "clsx";
 import Image from "next/image";
 import { MdOutlinePets } from "react-icons/md";
 
-export default function ExampleArea() {
+export default function ExampleArea({ className }) {
   return (
-    <main className="h-landingExampleArea grid grid-cols-1 py-20 lg:grid-cols-12 lg:gap-8 bg-gradient-landing text-white">
-      <section className="lg:col-start-2 lg:col-span-4 flex flex-col justify-between h-full">
+    <main
+      className={clsx(
+        "h-landingExampleArea grid py-20 px-10 grid-cols-12 gap-8 bg-gradient-landing text-white",
+        className
+      )}
+    >
+      <section className="col-span-6 flex flex-col justify-between h-full">
         <div>
           <h2 className="text-5xl font-bold text-orange-500">
             Crea El Perfil Digital De Tus Compañeros
@@ -36,7 +42,7 @@ export default function ExampleArea() {
           </p>
         </div>
       </section>
-      <section className="lg:col-start-7 lg:col-span-5 relative h-full">
+      <section className="col-span-6 relative h-full">
         <Image
           src="/ExampleCards.png"
           alt="perro en caja"

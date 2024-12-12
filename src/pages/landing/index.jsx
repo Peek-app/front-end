@@ -34,22 +34,14 @@ export default function Landing() {
         <Branding />
       </section>
       <section>
-        {isDesktopOrLaptop ? (
-          <Mosaic />
-        ) : isTablet ? (
-          <TabletMosaic />
-        ) : (
-          <MobileMosaic />
-        )}
+        <MobileMosaic className="flex flex-col md:hidden" />
+        <TabletMosaic className="hidden md:flex flex-col lg:hidden" />
+        <Mosaic className="hidden lg:flex flex-col" />
       </section>
       <section>
-        {isDesktopOrLaptop ? (
-          <ExampleArea />
-        ) : isTablet ? (
-          <TabletExampleArea />
-        ) : (
-          <MobileExampleArea />
-        )}
+        <MobileExampleArea className="flex flex-col md:hidden" />
+        <TabletExampleArea className="hidden md:flex flex-col lg:hidden" />
+        <ExampleArea className="hidden lg:grid" />
       </section>
       <section>
         <VetArea />
