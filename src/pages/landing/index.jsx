@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useMediaQuery } from "react-responsive";
 
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -16,9 +15,6 @@ import VetArea from "./vetArea";
 export default function Landing() {
   const [isClient, setIsClient] = useState(false);
 
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
-  const isDesktopOrLaptop = useMediaQuery({ minWidth: 1024 });
-
   useEffect(() => {
     setIsClient(true);
   }, []);
@@ -34,22 +30,14 @@ export default function Landing() {
         <Branding />
       </section>
       <section>
-        {isDesktopOrLaptop ? (
-          <Mosaic />
-        ) : isTablet ? (
-          <TabletMosaic />
-        ) : (
-          <MobileMosaic />
-        )}
+        <MobileMosaic className="flex flex-col md:hidden" />
+        <TabletMosaic className="hidden md:flex flex-col lg:hidden" />
+        <Mosaic className="hidden lg:flex flex-col" />
       </section>
       <section>
-        {isDesktopOrLaptop ? (
-          <ExampleArea />
-        ) : isTablet ? (
-          <TabletExampleArea />
-        ) : (
-          <MobileExampleArea />
-        )}
+        <MobileExampleArea className="flex flex-col md:hidden" />
+        <TabletExampleArea className="hidden md:flex flex-col lg:hidden" />
+        <ExampleArea className="hidden lg:grid" />
       </section>
       <section>
         <VetArea />

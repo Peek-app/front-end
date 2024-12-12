@@ -1,8 +1,9 @@
 import Image from "next/image";
+import clsx from "clsx";
 
-export default function Mosaic() {
+export default function Mosaic({ className }) {
   return (
-    <main className="bg-white px-32 pt-2 pb-28">
+    <main className={clsx("bg-white px-32 pt-2 pb-28", className)}>
       <section>
         <h2 className="text-congress-950 font-bold text-3xl py-10">
           ¡Organiza la salud de tu compañero de <br /> manera
