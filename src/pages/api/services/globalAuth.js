@@ -6,6 +6,7 @@ export async function handleLogin(email, password, setUser) {
     if (!userData) {
       throw new Error("User data not found");
     }
+    localStorage.setItem("access-token", userData.token);
     setUser(userData);
   } catch (error) {
     console.error("Login failed:", error);
