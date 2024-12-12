@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useMediaQuery } from "react-responsive";
 
 import Navbar from "@/components/NavBar";
 import Footer from "@/components/Footer";
@@ -15,9 +14,6 @@ import VetArea from "./vetArea";
 
 export default function Landing() {
   const [isClient, setIsClient] = useState(false);
-
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1023 });
-  const isDesktopOrLaptop = useMediaQuery({ minWidth: 1024 });
 
   useEffect(() => {
     setIsClient(true);
