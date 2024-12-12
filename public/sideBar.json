@@ -4,22 +4,27 @@
       {
         "id": 1,
         "text": "Mi perfil",
-        "icon": "BsGrid"
+        "icon": "PiUserLight"
       },
       {
         "id": 2,
-        "text": "Mis citas",
-        "icon": "BsCalendar4Week"
+        "text": "Proximas citas",
+        "icon": "PiCalendarDotsLight"
       },
       {
         "id": 3,
-        "text": "Buscar",
-        "icon": "MdOutlineFindInPage"
+        "text": "Veterinarios",
+        "icon": "PiFileMagnifyingGlassLight"
       },
       {
         "id": 4,
-        "text": "Mis mascotas",
-        "icon": "MdOutlinePets"
+        "text": "Preguntas frecuentes",
+        "icon": "PiQuestionLight"
+      },
+      {
+        "id": 5,
+        "text": "Inicio",
+        "icon": "PiSquaresFourLight"
       }
     ]
   }
