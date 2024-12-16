@@ -18,12 +18,18 @@ export async function createPet(petData) {
 
     const data = await response.json();
 
+    console.log("API response:", data);
+
     if (!response.ok) {
       const errorMessage = data.message || "Error creating pet.";
       throw new Error(errorMessage);
     }
 
-    return data;
+    if (!data.data || !data.data.pet || !data.data.pet._id) {
+      throw new Error("Response does not contain pet ID.");
+    }
+
+    return data.data.pet;
   } catch (error) {
     console.error("Error createPet:", error.message);
     throw error;

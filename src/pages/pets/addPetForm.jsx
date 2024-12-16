@@ -13,9 +13,6 @@ const schema = yup.object().shape({
   typeAnimal: yup.string().required("Type of animal is required"),
   breed: yup.string().required("Breed is required"),
   picture: yup.string().required("Picture URL is required"),
-  medals: yup.array().of(yup.string()),
-  petOwner: yup.string(),
-  vet: yup.string(),
 });
 
 export default function AddPetForm({ onClose }) {
@@ -56,7 +53,7 @@ export default function AddPetForm({ onClose }) {
               type="text"
               {...register("name")}
               className={clsx(
-                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-12 text-black",
                 {
                   "border-red-500": errors.name,
                 }
@@ -74,7 +71,7 @@ export default function AddPetForm({ onClose }) {
               type="date"
               {...register("birthday")}
               className={clsx(
-                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-12 text-black",
                 {
                   "border-red-500": errors.birthday,
                 }
@@ -92,7 +89,7 @@ export default function AddPetForm({ onClose }) {
               type="text"
               {...register("typeAnimal")}
               className={clsx(
-                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-12 text-black",
                 {
                   "border-red-500": errors.typeAnimal,
                 }
@@ -110,7 +107,7 @@ export default function AddPetForm({ onClose }) {
               type="text"
               {...register("breed")}
               className={clsx(
-                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-12 text-black",
                 {
                   "border-red-500": errors.breed,
                 }
@@ -128,7 +125,7 @@ export default function AddPetForm({ onClose }) {
               type="text"
               {...register("picture")}
               className={clsx(
-                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm",
+                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-12 text-black",
                 {
                   "border-red-500": errors.picture,
                 }
@@ -138,42 +135,12 @@ export default function AddPetForm({ onClose }) {
               <span className="text-red-500">{errors.picture.message}</span>
             )}
           </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Medals
-            </label>
-            <input
-              type="text"
-              {...register("medals")}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Pet Owner ID
-            </label>
-            <input
-              type="text"
-              {...register("petOwner")}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Vet ID
-            </label>
-            <input
-              type="text"
-              {...register("vet")}
-              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-            />
-          </div>
           <div className="flex justify-end">
             <button
               type="submit"
               className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
             >
-              Agregar Mascosta
+              Add Pet
             </button>
           </div>
         </form>

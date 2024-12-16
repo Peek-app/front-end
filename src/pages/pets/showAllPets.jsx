@@ -37,7 +37,7 @@ export default function ShowAllPets() {
         <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {pets.map((pet) => (
             <div
-              key={pet.id}
+              key={pet._id}
               className="bg-cover bg-center rounded-2xl p-6 text-white"
               style={{ backgroundImage: `url(${pet.picture})` }}
             >
