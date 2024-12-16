@@ -15,9 +15,9 @@ export default function addPets({ onPetAdded }) {
   };
 
   return (
-    <div className="bg-white rounded-lg p-4 flex items-center justify-center">
+    <div className="bg-white rounded-lg p-20 flex items-center justify-center max-w-64">
       <article onClick={openModal} className="cursor-pointer">
-        <FaPlusCircle className="text-4xl" />
+        <FaPlusCircle className="text-6xl text-congress-950" />
       </article>
       {isModalOpen && (
         <AddPetForm onClose={closeModal} onPetAdded={onPetAdded} />

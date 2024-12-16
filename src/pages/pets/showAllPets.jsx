@@ -27,7 +27,7 @@ export default function ShowAllPets({ refresh }) {
   }
 
   return (
-    <article className="p-4">
+    <article>
       {pets.length === 0 ? (
         <section
           className={clsx("bg-gray-200 rounded-2xl p-6 text-center text-white")}
@@ -35,11 +35,11 @@ export default function ShowAllPets({ refresh }) {
           Aun no tienes mascotas agregadas
         </section>
       ) : (
-        <section className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <section className="flex flex-wrap sm:flex-nowrap gap-7">
           {pets.map((pet) => (
             <div
               key={pet._id}
-              className="bg-cover bg-center rounded-2xl p-6 text-white"
+              className="bg-cover bg-center rounded-2xl p-6 text-white w-full md:min-w-64 min-h-56"
               style={{ backgroundImage: `url(${pet.picture})` }}
             >
               <h2 className="text-xl font-bold">{pet.name}</h2>
