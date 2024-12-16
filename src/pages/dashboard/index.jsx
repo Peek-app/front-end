@@ -1,3 +1,4 @@
+import Pets from "../pets";
 import Header from "./header";
 import SideBar from "./sideBar";
 
@@ -7,14 +8,7 @@ export default function Dashboard() {
       <Header />
       <SideBar />
       <div className="">
-        <h2>hola</h2>
-        <h2>hola</h2>
-        <h2>hola</h2>
-        <h2>hola</h2>
-        <h2>hola</h2>
-        <h2>hola</h2>
-        <h2>hola</h2>
-        <h2>hola</h2>
+        <Pets />
       </div>
     </main>
   );
