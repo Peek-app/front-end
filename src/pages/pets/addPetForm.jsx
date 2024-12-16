@@ -33,8 +33,12 @@ export default function AddPetForm({ onClose, onPetAdded }) {
     try {
       await createPet(data);
       toast.success("Mascota creada con éxito");
-      onPetAdded();
-      onClose();
+      if (typeof onPetAdded === "function") {
+        onPetAdded();
+      }
+      if (typeof onClose === "function") {
+        onClose();
+      }
     } catch (error) {
       toast.error(`Error creando mascota: ${error.message}`);
     } finally {
