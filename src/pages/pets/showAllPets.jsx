@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { getAllPets } from "@/pages/api/services/pets/getAllPets";
 
-export default function ShowAllPets() {
+export default function ShowAllPets({ refresh }) {
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -19,7 +19,7 @@ export default function ShowAllPets() {
     }
 
     fetchPets();
-  }, []);
+  }, [refresh]);
 
   if (loading) {
     return <div>Loading...</div>;
