@@ -8,9 +8,10 @@ export default function ShowAllPets({ refresh }) {
 
   useEffect(() => {
     async function fetchPets() {
+      setLoading(true);
       try {
-        const data = await getAllPets();
-        setPets(Array.isArray(data) ? data : []);
+        const petsData = await getAllPets();
+        setPets(Array.isArray(petsData) ? petsData : []);
       } catch (error) {
         console.error("Error fetching pets:", error);
       } finally {
