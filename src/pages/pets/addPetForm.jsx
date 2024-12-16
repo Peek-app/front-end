@@ -3,6 +3,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { createPet } from "@/pages/api/services/pets/createPet";
 import * as yup from "yup";
+import { toast } from "sonner";
+import { useState } from "react";
 
 const schema = yup.object().shape({
   name: yup
@@ -15,7 +17,7 @@ const schema = yup.object().shape({
   picture: yup.string().required("Picture URL is required"),
 });
 
-export default function AddPetForm({ onClose }) {
+export default function AddPetForm({ onClose, onPetAdded }) {
   const {
     register,
     handleSubmit,
@@ -24,12 +26,23 @@ export default function AddPetForm({ onClose }) {
     resolver: yupResolver(schema),
   });
 
+  const [loading, setLoading] = useState(false);
+
   const onSubmit = async (data) => {
+    setLoading(true);
     try {
       await createPet(data);
-      onClose();
+      toast.success("Mascota creada con éxito");
+      if (typeof onPetAdded === "function") {
+        onPetAdded();
+      }
+      if (typeof onClose === "function") {
+        onClose();
+      }
     } catch (error) {
-      console.error("Error creating pet:", error);
+      toast.error(`Error creando mascota: ${error.message}`);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -138,9 +151,15 @@ export default function AddPetForm({ onClose }) {
           <div className="flex justify-end">
             <button
               type="submit"
-              className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className={clsx(
+                "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
+                {
+                  "opacity-50 cursor-not-allowed": loading,
+                }
+              )}
+              disabled={loading}
             >
-              Add Pet
+              {loading ? "Cargando..." : "Agregar Mascota"}
             </button>
           </div>
         </form>

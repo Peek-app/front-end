@@ -22,7 +22,7 @@ export async function getAllPets() {
       throw new Error(errorMessage);
     }
 
-    return data;
+    return data.data.pets;
   } catch (error) {
     console.error("Error getAllPets:", error.message);
     throw error;

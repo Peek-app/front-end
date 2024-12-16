@@ -3,7 +3,7 @@ import { FaPlusCircle } from "react-icons/fa";
 
 import AddPetForm from "./addPetForm";
 
-export default function addPets() {
+export default function addPets({ onPetAdded }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -19,7 +19,9 @@ export default function addPets() {
       <article onClick={openModal} className="cursor-pointer">
         <FaPlusCircle className="text-4xl" />
       </article>
-      {isModalOpen && <AddPetForm onClose={closeModal} />}
+      {isModalOpen && (
+        <AddPetForm onClose={closeModal} onPetAdded={onPetAdded} />
+      )}
     </div>
   );
 }

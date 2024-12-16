@@ -2,15 +2,16 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { getAllPets } from "@/pages/api/services/pets/getAllPets";
 
-export default function ShowAllPets() {
+export default function ShowAllPets({ refresh }) {
   const [pets, setPets] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchPets() {
+      setLoading(true);
       try {
-        const data = await getAllPets();
-        setPets(Array.isArray(data) ? data : []);
+        const petsData = await getAllPets();
+        setPets(Array.isArray(petsData) ? petsData : []);
       } catch (error) {
         console.error("Error fetching pets:", error);
       } finally {
@@ -19,7 +20,7 @@ export default function ShowAllPets() {
     }
 
     fetchPets();
-  }, []);
+  }, [refresh]);
 
   if (loading) {
     return <div>Loading...</div>;
