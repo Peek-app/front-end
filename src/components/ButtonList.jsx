@@ -12,7 +12,7 @@ export default function ButtonList() {
           <Link
             key={item.id}
             href={item.to}
-            className="w-32 h-12 bg-white p-4 rounded-full flex items-center gap-2"
+            className="w-full sm:w-32 h-12 bg-white p-4 rounded-full flex justify-center sm:justify-normal items-center gap-2"
           >
             <span className="text-neutral-700 text-xs">{item.text}</span>
             <img
