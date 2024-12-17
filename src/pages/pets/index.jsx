@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { MdPets } from "react-icons/md";
+
 import AddPet from "./addPet";
 import ShowAllPets from "./showAllPets";
 
 export default function Pets() {
   const [refresh, setRefresh] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const refreshPets = () => {
     setRefresh((prev) => !prev);
@@ -32,7 +35,11 @@ export default function Pets() {
               Mis mascotas
             </h2>
             <div className="flex flex-col gap-8">
-              <ShowAllPets refresh={refresh} />
+              <ShowAllPets
+                refresh={refresh}
+                isLoading={isLoading}
+                setIsLoading={setIsLoading}
+              />
               <AddPet onPetAdded={refreshPets} />
             </div>
           </div>

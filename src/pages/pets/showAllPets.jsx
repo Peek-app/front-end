@@ -1,29 +1,34 @@
 import { useEffect, useState } from "react";
+import { MdPets } from "react-icons/md";
 import clsx from "clsx";
+
 import { getAllPets } from "@/pages/api/services/pets/getAllPets";
 
-export default function ShowAllPets({ refresh }) {
+export default function ShowAllPets({ refresh, isLoading, setIsLoading }) {
   const [pets, setPets] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function fetchPets() {
-      setLoading(true);
+      setIsLoading(true);
       try {
         const petsData = await getAllPets();
         setPets(Array.isArray(petsData) ? petsData : []);
       } catch (error) {
         console.error("Error fetching pets:", error);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     }
 
     fetchPets();
-  }, [refresh]);
+  }, [refresh, setIsLoading]);
 
-  if (loading) {
-    return <div>Loading...</div>;
+  if (isLoading) {
+    return (
+      <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
+        <MdPets className="text-white text-6xl animate-bounce" />
+      </div>
+    );
   }
 
   return (
