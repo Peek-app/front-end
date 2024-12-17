@@ -6,6 +6,10 @@ import * as yup from "yup";
 import { toast } from "sonner";
 import { useState } from "react";
 
+import { MdClose } from "react-icons/md";
+
+import PrimaryButton from "@/components/PrimaryButton";
+
 const schema = yup.object().shape({
   name: yup
     .string()
@@ -52,116 +56,96 @@ export default function AddPetForm({ onClose, onPetAdded }) {
         "fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"
       )}
     >
-      <div className="bg-white p-6 rounded-lg shadow-lg relative">
+      <div className="bg-white p-6 rounded-lg shadow-2xl w-96 relative">
         <button onClick={onClose} className="absolute top-2 right-2">
-          Close
+          <MdClose className="text-2xl m-auto text-congress-950" />
         </button>
-        <h2 className="text-2xl mb-4">Agrega a tu mascota</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Name
-            </label>
-            <input
-              type="text"
-              {...register("name")}
-              className={clsx(
-                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-12 text-black",
-                {
-                  "border-red-500": errors.name,
-                }
-              )}
-            />
-            {errors.name && (
-              <span className="text-red-500">{errors.name.message}</span>
+        <h2 className="text-congress-950 text-2xl text-center mb-4">
+          Agrega a tu mascota
+        </h2>
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="w-full flex flex-col gap-4 mt-4"
+        >
+          <label className="w-full text-left text-congress-950">Name</label>
+          <input
+            type="text"
+            {...register("name")}
+            className={clsx(
+              "w-full rounded-md border border-gray-200 p-2 text-congress-950",
+              {
+                "border-red-500": errors.name,
+              }
             )}
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Birthday
-            </label>
-            <input
-              type="date"
-              {...register("birthday")}
-              className={clsx(
-                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-12 text-black",
-                {
-                  "border-red-500": errors.birthday,
-                }
-              )}
-            />
-            {errors.birthday && (
-              <span className="text-red-500">{errors.birthday.message}</span>
+          />
+          {errors.name && (
+            <span className="text-red-500">{errors.name.message}</span>
+          )}
+
+          <label className="w-full text-left text-congress-950">Birthday</label>
+          <input
+            type="date"
+            {...register("birthday")}
+            className={clsx(
+              "w-full rounded-md border border-gray-200 p-2 text-congress-950",
+              {
+                "border-red-500": errors.birthday,
+              }
             )}
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Type of Animal
-            </label>
-            <input
-              type="text"
-              {...register("typeAnimal")}
-              className={clsx(
-                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-12 text-black",
-                {
-                  "border-red-500": errors.typeAnimal,
-                }
-              )}
-            />
-            {errors.typeAnimal && (
-              <span className="text-red-500">{errors.typeAnimal.message}</span>
+          />
+          {errors.birthday && (
+            <span className="text-red-500">{errors.birthday.message}</span>
+          )}
+
+          <label className="w-full text-left text-congress-950">
+            Type of Animal
+          </label>
+          <input
+            type="text"
+            {...register("typeAnimal")}
+            className={clsx(
+              "w-full rounded-md border border-gray-200 p-2 text-congress-950",
+              {
+                "border-red-500": errors.typeAnimal,
+              }
             )}
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Breed
-            </label>
-            <input
-              type="text"
-              {...register("breed")}
-              className={clsx(
-                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-12 text-black",
-                {
-                  "border-red-500": errors.breed,
-                }
-              )}
-            />
-            {errors.breed && (
-              <span className="text-red-500">{errors.breed.message}</span>
+          />
+          {errors.typeAnimal && (
+            <span className="text-red-500">{errors.typeAnimal.message}</span>
+          )}
+
+          <label className="w-full text-left text-congress-950">Breed</label>
+          <input
+            type="text"
+            {...register("breed")}
+            className={clsx(
+              "w-full rounded-md border border-gray-200 p-2 text-congress-950",
+              {
+                "border-red-500": errors.breed,
+              }
             )}
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">
-              Picture URL
-            </label>
-            <input
-              type="text"
-              {...register("picture")}
-              className={clsx(
-                "mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm h-12 text-black",
-                {
-                  "border-red-500": errors.picture,
-                }
-              )}
-            />
-            {errors.picture && (
-              <span className="text-red-500">{errors.picture.message}</span>
+          />
+          {errors.breed && (
+            <span className="text-red-500">{errors.breed.message}</span>
+          )}
+
+          <label className="w-full text-left text-congress-950">
+            Picture URL
+          </label>
+          <input
+            type="text"
+            {...register("picture")}
+            className={clsx(
+              "w-full rounded-md border border-gray-200 p-2 text-congress-950",
+              {
+                "border-red-500": errors.picture,
+              }
             )}
-          </div>
-          <div className="flex justify-end">
-            <button
-              type="submit"
-              className={clsx(
-                "inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500",
-                {
-                  "opacity-50 cursor-not-allowed": loading,
-                }
-              )}
-              disabled={loading}
-            >
-              {loading ? "Cargando..." : "Agregar Mascota"}
-            </button>
-          </div>
+          />
+          {errors.picture && (
+            <span className="text-red-500">{errors.picture.message}</span>
+          )}
+          <PrimaryButton label="Agregar Mascota" isSubmitting={loading} />
         </form>
       </div>
     </section>

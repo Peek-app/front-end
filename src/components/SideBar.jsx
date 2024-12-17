@@ -2,12 +2,7 @@ import { useState } from "react";
 import clsx from "clsx";
 
 import { BsGrid, BsCalendar4Week } from "react-icons/bs";
-import {
-  MdOutlineFindInPage,
-  MdOutlinePets,
-  MdOutlineSettings,
-  MdHelpOutline,
-} from "react-icons/md";
+import { MdOutlineFindInPage, MdOutlinePets } from "react-icons/md";
 
 import {
   PiCalendarDotsLight,
@@ -21,7 +16,7 @@ import {
   PiXLight,
 } from "react-icons/pi";
 
-import sideBar from "../../../public/sideBar.json";
+import sideBar from "../../public/sideBar.json";
 
 const iconMap = {
   BsGrid: BsGrid,
@@ -37,12 +32,11 @@ const iconMap = {
 };
 
 export default function SideBar() {
-  const [hoveredIndex, setHoveredIndex] = useState(null);
   const [isShowingNavBar, setIsShowingNavBar] = useState(false);
 
   return (
     <aside
-      className=" bg-slate-900 h-[100vh] fixed bg-gradient-landingS pt-5 top-0 min-w-20 text-center transition-all duration-300 ease-in-out "
+      className=" bg-slate-900 h-[100vh] fixed bg-gradient-landing pt-5 top-0 min-w-20 text-center transition-all duration-300 ease-in-out z-[2]"
       onMouseOver={() => setIsShowingNavBar(true)}
       onMouseOut={() => setIsShowingNavBar(false)}
     >
@@ -70,6 +64,7 @@ export default function SideBar() {
               const IconComponent = iconMap[item.icon];
               return (
                 <li
+                  key={index}
                   className={clsx(
                     "flex items-center  gap-4 cursor-pointer w-full h-10 transition-all duration-200 ease-in-out",
                     {
