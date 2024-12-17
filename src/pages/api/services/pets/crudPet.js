@@ -2,7 +2,8 @@ const api = process.env.NEXT_PUBLIC_API_URL;
 
 //Obtener mascota unica
 export async function getPet(id) {
-  const token = localStorage.getItem("accessToken");
+  const token = localStorage.getItem("access-token");
+
   if (!token) {
     throw new Error("No access token found");
   }
@@ -10,6 +11,7 @@ export async function getPet(id) {
   const response = await fetch(`${api}/pets/${id}`, {
     method: "GET",
     headers: {
+      "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,
     },
   });
@@ -25,12 +27,12 @@ export async function getPet(id) {
   }
 
   const data = await response.json();
-  return data;
+  return data.data.pet;
 }
 
 //Editar mascota unica
 export async function editPet(id, petData) {
-  const token = localStorage.getItem("accessToken");
+  const token = localStorage.getItem("access-token");
   if (!token) {
     throw new Error("No access token found");
   }
@@ -60,7 +62,7 @@ export async function editPet(id, petData) {
 
 //Eliminar mascota unica
 export async function deletePet(id) {
-  const token = localStorage.getItem("accessToken");
+  const token = localStorage.getItem("access-token");
   if (!token) {
     throw new Error("No access token found");
   }

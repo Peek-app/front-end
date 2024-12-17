@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { MdPets } from "react-icons/md";
 import clsx from "clsx";
+import Link from "next/link";
 
 import { getAllPets } from "@/pages/api/services/pets/getAllPets";
 
@@ -42,14 +43,15 @@ export default function ShowAllPets({ refresh, isLoading, setIsLoading }) {
       ) : (
         <section className="flex flex-wrap sm:flex-nowrap gap-7">
           {pets.map((pet) => (
-            <div
+            <Link
+              href={`pets/${pet._id}`}
               key={pet._id}
               className="bg-cover bg-center rounded-2xl p-6 text-white w-full md:min-w-64 min-h-56"
               style={{ backgroundImage: `url(${pet.picture})` }}
             >
               <h2 className="text-xl font-bold">{pet.name}</h2>
               <p>{pet.typeAnimal}</p>
-            </div>
+            </Link>
           ))}
         </section>
       )}
