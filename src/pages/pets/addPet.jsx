@@ -15,7 +15,7 @@ export default function addPets({ onPetAdded }) {
   };
 
   return (
-    <div className="bg-white rounded-lg p-20 flex items-center justify-center max-w-64">
+    <div className="bg-white flex items-center justify-center rounded-2xl h-24 lg:h-56 p-8 shadow-md">
       <article onClick={openModal} className="cursor-pointer">
         <FaPlusCircle className="text-6xl text-congress-950" />
       </article>
