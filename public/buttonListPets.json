@@ -1,0 +1,24 @@
+[
+  {
+    "buttonList": [
+      {
+        "id": 1,
+        "text": "Veterinarios",
+        "to": "/",
+        "icon": "/fi-rs-ambulance.svg"
+      },
+      {
+        "id": 2,
+        "text": "Grooming ",
+        "to": "/",
+        "icon": "/fi-rs-barber-shop.svg"
+      },
+      {
+        "id": 3,
+        "text": "Insignias",
+        "to": "/",
+        "icon": "/fi-rr-badge.svg"
+      }
+    ]
+  }
+]

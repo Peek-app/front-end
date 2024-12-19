@@ -2,8 +2,9 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import clsx from "clsx";
 
-export default function MobileMosaic() {
+export default function MobileMosaic({ className }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [sliderRef, slider] = useKeenSlider({
     loop: true,
@@ -40,7 +41,12 @@ export default function MobileMosaic() {
   }, [currentIndex, slider]);
 
   return (
-    <div className="relative w-full max-w-lg mx-auto bg-white py-8">
+    <div
+      className={clsx(
+        "relative w-full max-w-lg mx-auto bg-white py-8",
+        className
+      )}
+    >
       <div className="w-3/4 mx-auto">
         <div
           ref={sliderRef}

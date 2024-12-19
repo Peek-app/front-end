@@ -1,13 +1,12 @@
-import Navbar from "@/components/NavBar";
 import clsx from "clsx";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { loginUser } from "@/pages/api/services/users/User";
 import { PiUserCircleLight } from "react-icons/pi";
-import { TbUserHexagon } from "react-icons/tb";
+import { handleLogin } from "@/pages/api/services/globalAuth";
+import { useUser } from "@/context/UserContext";
 
-export default function loginPage() {
+export default function LoginPage() {
   const {
     register,
     handleSubmit,
@@ -16,29 +15,20 @@ export default function loginPage() {
   } = useForm();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const router = useRouter();
+  const { setUser } = useUser();
 
   async function onSubmit(data) {
     setIsSubmitting(true);
-    //alert("is submiting");
 
     try {
-      const token = await loginUser(data.email, data.password);
-      if (token) {
-        //alert("valid credential");
-        localStorage.setItem("access-token", token.token);
-        //alert(token);
-        router.push("/");
-        setIsSubmitting(false);
-        return;
-      }
-
+      await handleLogin(data.email, data.password, setUser);
+      router.push("/");
+    } catch (error) {
       setError("root.data", {
         type: "manual",
         message: "Ups! Verifica que tus datos sean los correctos",
       });
-      setIsSubmitting(false);
-    } catch (error) {
-      console.log("Error in login:", error);
+    } finally {
       setIsSubmitting(false);
     }
   }
@@ -132,7 +122,7 @@ export default function loginPage() {
             <hr />
             <p className="text-congress-950 mt-4 text-center">
               No tienes una cuenta?{" "}
-              <a className="text-congress-300" href="">
+              <a className="text-congress-300" href="/create-account">
                 Registrate aquí
               </a>
             </p>

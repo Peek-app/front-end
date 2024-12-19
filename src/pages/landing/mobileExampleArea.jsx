@@ -1,9 +1,15 @@
+import clsx from "clsx";
 import Image from "next/image";
 import { MdOutlinePets } from "react-icons/md";
 
-export default function MobileExampleArea() {
+export default function MobileExampleArea({ className }) {
   return (
-    <main className="h-landingExampleArea grid grid-cols-1 py-10 bg-gradient-landing text-white">
+    <main
+      className={clsx(
+        "h-landingExampleArea grid grid-cols-1 py-10 bg-gradient-landing text-white",
+        className
+      )}
+    >
       <div>
         <h2 className="text-3xl text-center font-bold text-orange-500 px-8">
           Crea El Perfil Digital De Tus Compañeros

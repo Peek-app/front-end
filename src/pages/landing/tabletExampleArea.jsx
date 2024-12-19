@@ -1,9 +1,12 @@
+import clsx from "clsx";
 import Image from "next/image";
 import { MdOutlinePets } from "react-icons/md";
 
-export default function TabletExampleArea() {
+export default function TabletExampleArea({ className }) {
   return (
-    <main className="py-20 bg-gradient-landing text-white p-16">
+    <main
+      className={clsx("py-20 bg-gradient-landing text-white p-16", className)}
+    >
       <section className="space-y-10">
         <div>
           <h2 className="text-4xl font-bold text-orange-500">

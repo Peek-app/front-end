@@ -1,8 +1,9 @@
 import Image from "next/image";
+import clsx from "clsx";
 
-export default function TabletMosaic() {
+export default function TabletMosaic({ className }) {
   return (
-    <main className="px-32 pt-2 pb-20">
+    <main className={clsx("px-32 pt-2 pb-20", className)}>
       <section>
         <h2 className="text-congress-950 font-bold text-2xl py-10">
           ¡Organiza la salud de tu compañero de <br /> manera
