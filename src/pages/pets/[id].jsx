@@ -39,7 +39,7 @@ export default function Mascotas() {
               <div className="w-full relative ">
                 <ProfileImagePet image={pet.picture} />
               </div>
-              <div className="w-full bg-white shadow-md rounded-lg p-9 text-black">
+              <div className="w-full bg-white shadow-md rounded-2xl p-9 text-black">
                 <Calendar />
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function Mascotas() {
           <div className="w-full flex flex-col gap-8 md:w-[60%]">
             <div className="flex flex-wrap lg:flex-nowrap  gap-8">
               <div className="w-full lg:w-[65%] flex gap-8 flex-col">
-                <div className="min-h-20 bg-unset sm:bg-congress-100 rounded-full flex items-center justify-center gap-6 flex-wrap sm:flex-nowrap">
+                <div className="min-h-20 bg-unset sm:bg-congress-100 rounded-2xl flex items-center justify-center gap-6 flex-wrap sm:flex-nowrap">
                   <ButtonList />
                 </div>
                 <div className="flex flex-wrap sm:flex-nowrap gap-8 justify-between">
@@ -65,11 +65,11 @@ export default function Mascotas() {
                   />
                 </div>
               </div>
-              <div className="w-full lg:w-[35%] bg-white shadow-md rounded-lg p-9 ">
+              <div className="w-full lg:w-[35%] bg-white shadow-md rounded-2xl p-9 ">
                 Actividad
               </div>
             </div>
-            <div className="w-full bg-white shadow-md rounded-lg p-9 ">
+            <div className="w-full bg-white shadow-md rounded-2xl p-9 ">
               <div className="flex flex-col items-center justify-center gap-3">
                 <MdOutlineMedicalServices className="w-20 h-20 text-congress-700" />
                 <span className="text-congress-700 text-lg font-roboto font-bold">

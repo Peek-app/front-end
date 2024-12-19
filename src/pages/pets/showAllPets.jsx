@@ -33,28 +33,33 @@ export default function ShowAllPets({ refresh, isLoading, setIsLoading }) {
   }
 
   return (
-    <article>
+    <>
       {pets.length === 0 ? (
         <section
-          className={clsx("bg-gray-200 rounded-2xl p-6 text-center text-white")}
+          className={clsx(
+            "bg-white shadow-md rounded-2xl p-8 text-center text-white h-24 lg:h-56 flex justify-center items-center"
+          )}
         >
-          Aun no tienes mascotas agregadas
+          <h2 className="text-xl font-bold text-congress-950">
+            {" "}
+            Aun no tienes mascotas agregadas
+          </h2>
         </section>
       ) : (
-        <section className="flex flex-wrap sm:flex-nowrap gap-7">
+        <>
           {pets.map((pet) => (
             <Link
               href={`pets/${pet._id}`}
               key={pet._id}
-              className="bg-cover bg-center rounded-2xl p-6 text-white w-full md:min-w-64 min-h-56"
+              className="bg-cover bg-center rounded-2xl h-24 lg:h-56 p-8 shadow-md"
               style={{ backgroundImage: `url(${pet.picture})` }}
             >
               <h2 className="text-xl font-bold">{pet.name}</h2>
               <p>{pet.typeAnimal}</p>
             </Link>
           ))}
-        </section>
+        </>
       )}
-    </article>
+    </>
   );
 }
