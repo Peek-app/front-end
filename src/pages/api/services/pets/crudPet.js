@@ -38,7 +38,7 @@ export async function editPet(id, petData) {
   }
 
   const response = await fetch(`${api}/pets/${id}`, {
-    method: "PUT",
+    method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${token}`,

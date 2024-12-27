@@ -2,6 +2,9 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 import { MdOutlineMedicalServices } from "react-icons/md";
+import { MdPets } from "react-icons/md";
+import { MdOutlineEdit } from "react-icons/md";
+import { MdDeleteOutline } from "react-icons/md";
 
 import ProfileImagePet from "@/components/ProfileImagePet";
 import Calendar from "@/components/Calendar";
@@ -9,10 +12,13 @@ import ButtonList from "@/components/ButtonList";
 import EventHighlight from "@/components/EventHighlight";
 import PetName from "@/components/PetName";
 import DashboardLayout from "@/Layouts/DashboardLayout";
+import EditPetForm from "./editPetForm";
 
 import { getPet } from "../api/services/pets/crudPet";
 
 export default function Mascotas() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const [pet, setPet] = useState({});
   const router = useRouter();
   const { id } = router.query;
@@ -22,21 +28,41 @@ export default function Mascotas() {
     getPet(id)
       .then((data) => {
         setPet(data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
       });
   }, [id]);
 
-  console.log(pet, "pet");
+  const handleModal = () => {
+    setIsModalOpen(!isModalOpen);
+  };
+
   return (
     <DashboardLayout>
+      {isLoading && (
+        <div className="fixed inset-0 flex items-center bg-black bg-opacity-50 justify-center p-4 text-white z-10">
+          <MdPets className="text-white text-6xl animate-bounce" />
+        </div>
+      )}
       <div className="pl-24 pr-3 bg-gray-100">
         <PetName name={pet.name} />
         <div className="flex flex-wrap md:flex-nowrap gap-8">
           <div className="w-full md:w-[40%]">
             <div className="flex flex-col gap-8">
               <div className="w-full relative ">
+                <div className="absolute z-[4] left-7 bottom-6 flex flex-col gap-7">
+                  <button
+                    onClick={handleModal}
+                    className="text-white text-3xl opacity-65"
+                  >
+                    <MdOutlineEdit />
+                  </button>
+                  <button className="text-white text-3xl opacity-65">
+                    <MdDeleteOutline />
+                  </button>
+                </div>
                 <ProfileImagePet image={pet.picture} />
               </div>
               <div className="w-full bg-white shadow-md rounded-2xl p-9 text-black">
@@ -71,8 +97,8 @@ export default function Mascotas() {
             </div>
             <div className="w-full bg-white shadow-md rounded-2xl p-9 ">
               <div className="flex flex-col items-center justify-center gap-3">
-                <MdOutlineMedicalServices className="w-20 h-20 text-congress-700" />
-                <span className="text-congress-700 text-lg font-roboto font-bold">
+                <MdOutlineMedicalServices className="h-8 w-8 text-congress-700" />
+                <span className="text-neutral-700 text-xs">
                   Historial Médico.
                 </span>
               </div>
@@ -80,6 +106,9 @@ export default function Mascotas() {
           </div>
         </div>
       </div>
+      {isModalOpen && (
+        <EditPetForm handleModal={handleModal} pet={pet} setPet={setPet} />
+      )}
     </DashboardLayout>
   );
 }

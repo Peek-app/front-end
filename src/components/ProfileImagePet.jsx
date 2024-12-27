@@ -9,7 +9,7 @@ export default function ProfileImagePet({ image }) {
         "bg-white": !image,
       })}
     >
-      {image ? (
+      {image && (
         <>
           <div className="bg-gradient-to-r from-gray-900 to-transparent rounded-lg absolute w-full h-full z-[1]"></div>
           <div className="shadow-md relative rounded-lg bg-sky-500/40 sm:h-[450px]">
@@ -19,13 +19,6 @@ export default function ProfileImagePet({ image }) {
             />
           </div>
         </>
-      ) : (
-        <div className="h-96 text-congress-700 flex flex-col items-center justify-center gap-3">
-          <MdOutlinePhotoCamera className="h-20 w-20" />
-          <span className="text-congress-700 text-lg font-roboto font-bold">
-            Imagen de perfil.
-          </span>
-        </div>
       )}
     </div>
   );

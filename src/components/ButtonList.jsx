@@ -2,8 +2,6 @@ import Link from "next/link";
 
 import buttonListPets from "../../public/buttonListPets.json";
 
-console.log(buttonListPets[0].buttonList);
-
 export default function ButtonList() {
   return (
     <>
