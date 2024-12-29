@@ -36,7 +36,7 @@ export default function SideBar() {
 
   return (
     <aside
-      className=" bg-slate-900 h-[100vh] fixed bg-gradient-landing pt-5 top-0 min-w-20 text-center transition-all duration-300 ease-in-out z-[2]"
+      className=" bg-slate-900 h-[100vh] fixed bg-gradient-landing pt-5 top-0 min-w-20 text-center transition-all duration-300 ease-in-out z-[3]"
       onMouseOver={() => setIsShowingNavBar(true)}
       onMouseOut={() => setIsShowingNavBar(false)}
     >
