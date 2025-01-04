@@ -13,12 +13,14 @@ import EventHighlight from "@/components/EventHighlight";
 import PetName from "@/components/PetName";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import EditPetForm from "./editPetForm";
+import DelePet from "./deletePet";
 
 import { getPet } from "../api/services/pets/crudPet";
 
 export default function Mascotas() {
   const [isLoading, setIsLoading] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isDeletePet, setIsDeletePet] = useState(false);
   const [pet, setPet] = useState({});
   const router = useRouter();
   const { id } = router.query;
@@ -37,6 +39,10 @@ export default function Mascotas() {
 
   const handleModal = () => {
     setIsModalOpen(!isModalOpen);
+  };
+
+  const handleDeletePet = () => {
+    setIsDeletePet(!isDeletePet);
   };
 
   return (
@@ -59,7 +65,10 @@ export default function Mascotas() {
                   >
                     <MdOutlineEdit />
                   </button>
-                  <button className="text-white text-3xl opacity-65">
+                  <button
+                    onClick={handleDeletePet}
+                    className="text-white text-3xl opacity-65"
+                  >
                     <MdDeleteOutline />
                   </button>
                 </div>
@@ -108,6 +117,9 @@ export default function Mascotas() {
       </div>
       {isModalOpen && (
         <EditPetForm handleModal={handleModal} pet={pet} setPet={setPet} />
+      )}
+      {isDeletePet && (
+        <DelePet handleDeletePet={handleDeletePet} name={pet.name} />
       )}
     </DashboardLayout>
   );
