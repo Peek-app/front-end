@@ -3,14 +3,17 @@ import Pets from "../pets";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 
 import { MdPets } from "react-icons/md";
+import { useAccount } from "@/context/AccountContext";
 
 export default function DashboardOwner() {
+  const { account } = useAccount();
+
   return (
     <DashboardLayout>
       <div className="bg-gray-100 ml-20 p-8 grid gap-4 grid-cols-1 lg:grid-cols-12 ">
         <div className="grid grid-cols-subgrid gap-4 md:grid-cols-2  lg:col-span-3 xl:col-span-2 lg:grid-cols-1 ">
           <div className="h-44 lg:h-96 bg-white shadow-md rounded-2xl p-6">
-            <h2 className="text-congress-950">PERFIL USER bonito</h2>
+            <h2 className="text-congress-950">{account.name}</h2>
           </div>
           <div className="min-h-16 lg:h-80 bg-white shadow-md rounded-2xl p-6">
             <h2 className="text-congress-950">Proximas citas</h2>

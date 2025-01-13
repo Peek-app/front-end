@@ -4,6 +4,7 @@ import { Urbanist, Roboto } from "next/font/google";
 import { SessionProvider } from "next-auth/react";
 
 import AuthProvider from "@/providers/AuthProvider";
+import { AccountProvider } from "@/context/AccountContext";
 import { UserProvider } from "@/context/UserContext";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
@@ -14,10 +15,12 @@ export default function App({ Component, pageProps }) {
     <SessionProvider session={pageProps.session}>
       <AuthProvider>
         <UserProvider>
-          <div className={`${urbanist.variable} ${roboto.variable}`}>
-            <Toaster position="bottom-right" richColors />
-            <Component {...pageProps} />
-          </div>
+          <AccountProvider>
+            <div className={`${urbanist.variable} ${roboto.variable}`}>
+              <Toaster position="bottom-right" richColors />
+              <Component {...pageProps} />
+            </div>
+          </AccountProvider>
         </UserProvider>
       </AuthProvider>
     </SessionProvider>
