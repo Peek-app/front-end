@@ -16,10 +16,31 @@ export async function createUser(userData) {
       const errorMessage = data.message || "Error.";
       throw new Error(errorMessage);
     }
-
     return data;
   } catch (error) {
     console.error("Error createAccount:", error.message);
+    throw error;
+  }
+}
+
+export async function getUser(userId) {
+  try {
+    const response = await fetch(`${api}/users/${userId}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      const errorMessage = data.message || "Error.";
+      throw new Error(errorMessage);
+    }
+    return data;
+  } catch (error) {
+    console.error("Error:", error);
     throw error;
   }
 }

@@ -5,8 +5,11 @@ import { useState } from "react";
 import { PiUserCircleLight } from "react-icons/pi";
 import { handleLogin } from "@/pages/api/services/globalAuth";
 import { useUser } from "@/context/UserContext";
+import { useAccount } from "@/context/AccountContext";
 
 export default function LoginPage() {
+  const { setAccount } = useAccount();
+
   const {
     register,
     handleSubmit,
@@ -21,9 +24,11 @@ export default function LoginPage() {
     setIsSubmitting(true);
 
     try {
-      await handleLogin(data.email, data.password, setUser);
+      await handleLogin(data.email, data.password, setUser, setAccount);
+      //updateAccount();
       router.push("/");
     } catch (error) {
+      alert(error.message);
       setError("root.data", {
         type: "manual",
         message: "Ups! Verifica que tus datos sean los correctos",
