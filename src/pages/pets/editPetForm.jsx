@@ -22,7 +22,7 @@ const schema = yup.object().shape({
   picture: yup.string().required("Picture URL is required"),
 });
 
-export default function EditPetForm({ handleModal, pet, setPet }) {
+export default function EditPetForm({ handleModal, pet = {}, setPet }) {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { id } = router.query;
@@ -34,13 +34,13 @@ export default function EditPetForm({ handleModal, pet, setPet }) {
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
-      name: pet.name,
+      name: pet.name || "",
       birthday: pet.birthday
         ? new Date(pet.birthday).toISOString().split("T")[0]
         : "",
-      typeAnimal: pet.typeAnimal,
-      breed: pet.breed,
-      picture: pet.picture,
+      typeAnimal: pet.typeAnimal || "",
+      breed: pet.breed || "",
+      picture: pet.picture || "",
     },
   });
 
@@ -55,7 +55,6 @@ export default function EditPetForm({ handleModal, pet, setPet }) {
     } catch (error) {
       setLoading(false);
       toast.error(`Error al actualizar mascota: ${error.message}`);
-    } finally {
     }
   };
 
