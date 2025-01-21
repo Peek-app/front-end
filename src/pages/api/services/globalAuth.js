@@ -19,6 +19,7 @@ export async function handleLogin(email, password, setUser, setAccount) {
       email: accountInfo.email,
       role: accountInfo.role,
       birthday: accountInfo.birthday,
+      profilePic: accountInfo.profilePic,
     });
     sessionStorage.setItem("user", JSON.stringify(userInfo?.data.user));
     setUser(userData);
