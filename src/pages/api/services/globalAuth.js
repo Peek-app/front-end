@@ -12,13 +12,14 @@ export async function handleLogin(email, password, setUser, setAccount) {
     //console.log(JSON.stringify(userInfo, null, 2));
     let accountInfo = JSON.stringify(userInfo, null, 2);
     accountInfo = userInfo?.data?.user;
-    //console.log(JSON.stringify(accountInfo, null, 2));
+
     setAccount({
       name: accountInfo.name,
       lastName: accountInfo.lastName,
       email: accountInfo.email,
       role: accountInfo.role,
       birthday: accountInfo.birthday,
+      profilePic: accountInfo.profilePic,
     });
     sessionStorage.setItem("user", JSON.stringify(userInfo?.data.user));
     setUser(userData);

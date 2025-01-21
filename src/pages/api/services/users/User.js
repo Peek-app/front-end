@@ -46,6 +46,7 @@ export async function getUser(userId) {
 }
 
 export async function loginUser(email, password) {
+  alert("entra");
   try {
     const response = await fetch(`${api}/auth/login`, {
       method: "POST",
@@ -55,13 +56,14 @@ export async function loginUser(email, password) {
       body: JSON.stringify({ email, password }),
     });
 
-    /*
-    if (!response.ok) {
+    alert(JSON.stringify(response));
+
+    /*if (!response.ok) {
       throw new Error("Error logging in");
-    }
-    */
+    }*/
 
     const data = await response.json();
+
     const token = data?.data || false;
     return token;
   } catch (error) {

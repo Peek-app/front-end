@@ -28,7 +28,6 @@ export default function LoginPage() {
       //updateAccount();
       router.push("/");
     } catch (error) {
-      alert(error.message);
       setError("root.data", {
         type: "manual",
         message: "Ups! Verifica que tus datos sean los correctos",
